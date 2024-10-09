@@ -78,10 +78,10 @@ resource "aws_security_group" "group10_ec2_sg" {
 
 # 7. Launch an EC2 Instance
 resource "aws_instance" "group10_nginx_server" {
-  ami           = var.ami.id
+  ami           = var.ami
   instance_type = var.instance_type
   subnet_id     = aws_subnet.group10_public_subnet.id
-  security_groups = [aws_security_group.group10_ec2_sg.name]
+  security_groups = [aws_security_group.group10_ec2_sg.id]
   
   # User Data Script to install NGINX
   # Update package list and install nginx
